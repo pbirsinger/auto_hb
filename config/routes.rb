@@ -3,8 +3,13 @@ AutoHb::Application.routes.draw do
   # See how all your routes lay out with "rake routes".
 
   # You can have the root of your site routed with "root"
-   root 'post_facebook#home'
-   get "login" => "login#login"
+  root 'post_facebook#home'
+  get "login" => "sessions#login"
+
+  match 'auth/:provider/callback' => 'sessions#create', :via => :post
+  match 'auth/failure' => 'post_facebook#home', :via => :get
+  match 'signout' => 'sessions#destroy', :via => :delete
+
 
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'

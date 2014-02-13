@@ -28,6 +28,7 @@ gem 'turbolinks'
 gem 'jbuilder', '~> 1.0.1'
 
 gem 'bootstrap-sass'
+gem 'omniauth'
 gem 'omniauth-facebook'
 
 group :doc do
