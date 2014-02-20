@@ -13,7 +13,18 @@
   <!-- Collect the nav links, forms, and other content for toggling -->
   <div class="collapse navbar-collapse navbar-ex1-collapse">
     <ul class="nav navbar-nav navbar-right">
-      <li><%= link_to "Login", login_path %></li>
+      <% if !current_user %>
+        <li>
+         <%= link_to "Login with Facebook", "/auth/facebook", id: "sign_in" %>
+        </li>
+      <% else %>
+        <li>
+          <div id="welcome"><%= "Logged in as #{current_user.name} " %></div>
+        </li>
+        <li>
+          <%= link_to "Logout", logout_path %>
+        </li>
+      <% end %>
     </ul>
   </div><!-- /.navbar-collapse -->
 </nav>

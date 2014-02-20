@@ -12,3 +12,8 @@
  *= require_app
  *= require_tree .
  */
+
+#welcome {
+	padding:15px 7px 0px 0px;
+	color: #eae9f2;
+}

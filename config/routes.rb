@@ -5,6 +5,7 @@ AutoHb::Application.routes.draw do
   # You can have the root of your site routed with "root"
   root 'post_facebook#home'
   get "login" => "sessions#login"
+  get "logout" => "sessions#destroy"
 
   match 'auth/:provider/callback' => 'sessions#create', :via => :get
   match 'auth/failure' => 'post_facebook#home', :via => :get
