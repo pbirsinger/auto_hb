@@ -5,6 +5,7 @@ AutoHb::Application.routes.draw do
   # You can have the root of your site routed with "root"
    root 'post_facebook#home'
    get "login" => "login#login"
+   get "signup" => "login#signup"
 
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'
