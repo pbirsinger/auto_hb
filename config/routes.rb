@@ -6,9 +6,9 @@ AutoHb::Application.routes.draw do
   root 'post_facebook#home'
   get "login" => "sessions#login"
 
-  match 'auth/:provider/callback' => 'sessions#create', :via => :post
+  match 'auth/:provider/callback' => 'sessions#create', :via => :get
   match 'auth/failure' => 'post_facebook#home', :via => :get
-  match 'signout' => 'sessions#destroy', :via => :delete
+  match 'signout' => 'sessions#destroy', :via => :get
 
 
   # Example of regular route:
