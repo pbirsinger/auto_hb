@@ -10,7 +10,6 @@ AutoHb::Application.routes.draw do
   match 'auth/failure' => 'post_facebook#home', :via => :get
   match 'signout' => 'sessions#destroy', :via => :get
 
-
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'
 

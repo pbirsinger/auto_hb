@@ -1,17 +1,22 @@
-<!DOCTYPE html>
-<html lang="en">
 <div class="container">
-	<div class="jumbotron">
-		<h1>AutoHB</h1>
-	</div>
+	<section id="content" class="m-t-lg wrapper-md animated fadeInUp">
+		<div class="row m-n">
+      <div class="col-md-6 col-md-offset-3 m-t-lg">
+				<div class="jumbotron">
+					<h1>AutoHB</h1><%= image_tag "robot.png" %>
+				</div>
+				<div>
+					<p>Stay in touch with aquaintances by sending out automatic birthday greetings on their birthdays. Forget logging into Facebook everyday just to say happy birthday to someone who's birthday you'd never remember anyway if it weren't for Facebook.
+					</p>
+				</div>
+				<h2>Birthday Greetings</h2>
+				<%= render 'post_facebook/greetings' %>
 
-	<h2>Birthday Greetings</h2>
-	<%= render 'post_facebook/greetings' %>
 
-
-	<h2>Non-Wish list</h2>
-	<p>Use this to specify who to omit from auto birthday greetings</p>
-
+				<h2>Non-Wish list</h2>
+				<p>Use this to specify who to omit from auto birthday greetings</p>
+				<%= render 'post_facebook/nonwish' %>
+			</div>
+		</div>
+</section>
 </div>
-
-</html>
