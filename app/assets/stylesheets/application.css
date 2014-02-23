@@ -9,7 +9,9 @@
  * compiled file, but it's generally better to create a new file per style scope.
  *
  *= require_self
- *= require_app
+ *= require alertify.core
+ *= require alertify.default
+ *= require css
  *= require_tree .
  */
 
