@@ -32,6 +32,7 @@ gem 'jbuilder', '~> 1.0.1'
 gem 'bootstrap-sass'
 gem 'omniauth'
 gem 'omniauth-facebook'
+gem 'koala'
 
 group :doc do
   # bundle exec rake doc:rails generates the API under doc/api.
@@ -49,3 +50,5 @@ end
 
 # Use debugger
  gem 'debugger', group: [:development, :test]
+ gem 'debugger-ruby_core_source', group: [:development, :test]
+
