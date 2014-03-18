@@ -9,4 +9,20 @@ class User < ActiveRecord::Base
       user.save!
     end
   end
+
+  def todays_birthdays
+    month = Date.today.month.to_s.rjust(2, '0')
+    day = Date.today.day.to_s.rjust(2, '0')
+    fql = """
+      SELECT name, uid
+      FROM user
+      WHERE uid IN (SELECT uid2 FROM friend WHERE uid1 = me())
+      AND strlen(birthday_date) != 0
+      AND ((substr(birthday_date, 0, 2) = '#{month}'
+      AND substr(birthday_date, 3, 2) = '#{day}'))
+    """
+    graph = Koala::Facebook::GraphAPI.new self.oauth_token
+    birthdays = graph.fql_query(fql)
+  end
+
 end
