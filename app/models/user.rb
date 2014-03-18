@@ -1,5 +1,9 @@
 class User < ActiveRecord::Base
-  def self.from_omniauth(auth)
+  include Greetings
+  serialize :greetings, JSON
+  before_create :set_default_greetings
+
+  def User.from_omniauth(auth)
     where(auth.slice(:provider, :uid)).first_or_initialize.tap do |user|
       user.provider = auth.provider
       user.uid = auth.uid
@@ -23,6 +27,11 @@ class User < ActiveRecord::Base
     """
     graph = Koala::Facebook::GraphAPI.new self.oauth_token
     birthdays = graph.fql_query(fql)
+  end
+
+  private
+  def set_default_greetings
+    self.greetings = DEFAULT_GREETINGS
   end
 
 end
